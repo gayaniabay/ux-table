@@ -1,0 +1,175 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/table.css">
+<link rel="stylesheet" type="text/css" href="assets/css/custom-checkbox.css">
+<link rel="stylesheet" type="text/css" href="assets/css/media.css">
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script type="text/javascript" charset="utf8" src="assets/scripts/data-table.js"></script>  
+
+
+
+<div class="page-container">
+    <div class="table-wrapper">
+        <div class="table-heading">
+            <h3>Social meadia activities summary</h3>
+        </div>
+        <div class="table-scrollable">
+                <table id="advanced-table" class="display advanced-table nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Users</th>
+                            <th>Social media accounts</th>
+                            <th>Close friends</th>
+                            <th>Country</th>
+                            <th>Treat score</th>
+                            <th>Influence score</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="container">
+                                    <input type="checkbox" checked="checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <span class="circle">
+                                    <span class="image">DK</span>
+                                </span>
+                                <span class="name">David Katz</span>
+                                <div class="dropdown pull-right">
+                                    <i class="fa fa-area-chart"></i>
+                                    <span class="dropdown-content dropdown-content--large">
+                                        <canvas id="time-series-chart"></canvas>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fa fa-facebook fa-social"></i>
+                            </td>
+                            <td>Dave Thompson</td>
+                            <td>Tailand</td>
+                            <td class="numeric-data">N/A</td>
+                            <td class="numeric-data">N/A</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="actions">Actions</button>
+                                    <ul class="dropdown-content">
+                                        <li><i class="fa fa-volume-control-phone"></i>Call</li>
+                                        <li><i class="fa fa-edit"></i>Edit</li>
+                                        <li><i class="fa fa-dashboard"></i>Dashboard</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                    <label class="container">
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                                <td class="circle-with-image">
+                                    <span class="circle favorite">
+                                        <span class="image"><img src="assets/images/jane.jpg" class="circle-image"></span>
+                                    </span>
+                                    <span class="name">Jane Anderson Lovee</span>
+                                    <div class="dropdown pull-right">
+                                        <i class="fa fa-area-chart"></i>
+                                        <span class="dropdown-content dropdown-content--large">
+                                            <canvas id="time-series-chart2"></canvas>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <i class="fa fa-facebook fa-social"></i>
+                                    <i class="fa fa-twitter fa-social"></i>
+                                    <i class="fa fa-instagram fa-social"></i>
+                                    <i class="fa fa-linkedin fa-social"></i>
+                                </td>
+                                <td>Loara Thompson</td>
+                                <td>United States</td>
+                                <td class="numeric-data">0.03</td>
+                                <td class="numeric-data">0.93</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="actions">Actions</button>
+                                        <ul class="dropdown-content">
+                                            <li><i class="fa fa-volume-control-phone"></i>Call</li>
+                                            <li><i class="fa fa-edit"></i>Edit</li>
+                                            <li><i class="fa fa-dashboard"></i>Dashboard</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+<script>
+var ctx = document.getElementById('time-series-chart');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug','Sep', 'Nov', 'Dec'],
+        datasets: [{
+            label: 'Number of social activities',
+            data: [2, 6, 3, 5, 2, 3, 4, 1, 5,6,4,7],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+var ctx = document.getElementById('time-series-chart2');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug','Sep', 'Nov', 'Dec'],
+        datasets: [{
+            label: 'Number of social activities',
+            data: [10, 6, 9, 5, 9, 7, 4, 5, 8,7,4,8],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+</script>
